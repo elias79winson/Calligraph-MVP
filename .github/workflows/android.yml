@@ -14,14 +14,15 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Set up JDK 1.8
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           java-version: '1.8'
+          distribution: temurin
 
       - name: Build APK
         run: chmod +x ./gradlew && ./gradlew assembleDebug
 
-      - name: Upload APK
+      - name: calligraph-apk
         uses: actions/upload-artifact@v4
         with:
           name: calligraph-apk
